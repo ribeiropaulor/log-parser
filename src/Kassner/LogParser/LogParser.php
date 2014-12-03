@@ -25,6 +25,7 @@ class LogParser
             '%O' => '(?P<sentBytes>[0-9]+)',
             '%I' => '(?P<receivedBytes>[0-9]+)',
             '\%\{(?P<name>[a-zA-Z]+)(?P<name2>[-]?)(?P<name3>[a-zA-Z]+)\}i' => '(?P<Header\\1\\3>.*?)',
+            '%D' => '(?P<requestTimeMicro>[0-9]+)',
     );
 
     public function __construct($format = '%h %l %u %t "%r" %>s %b')
