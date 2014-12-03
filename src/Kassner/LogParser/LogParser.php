@@ -28,9 +28,12 @@ class LogParser
             '%D' => '(?P<requestTimeMicro>[0-9]+)',
     );
 
-    public function __construct($format = '%h %l %u %t "%r" %>s %b')
+    public function __construct($format = '%h %l %u %t "%r" %>s %b', $customPatterns = array())
     {
         $this->setFormat($format);
+        foreach ($customPatterns as $key => $value) {
+            $this->patterns[$key] = $value;
+        }
     }
 
     public function setFormat($format)
